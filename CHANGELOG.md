@@ -1,5 +1,12 @@
 # Version history
 
+## 3.0.1 - 2026-09-02
+
+- Added the required root-level `filenames.php` file for Plugin Manager.
+- Corrected the missing Tools menu entry.
+- Made installation and upgrade refresh the Tools and Configuration page registrations.
+- Updated the installed-version configuration value during upgrade.
+
 ## 3.0.0 - 2026-09-02
 
 - Converted the plugin to an encapsulated Zen Cart Plugin Manager package.
