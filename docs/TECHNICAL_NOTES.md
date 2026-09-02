@@ -31,6 +31,27 @@ The configured batch size is normalized to 100 through 2,000 rows. The query use
 - The no-attributes export produces one row for each ordered product.
 - The three “except Delivered” exports retain the original status ID 3 rule.
 
+The standard full-export header order is:
+
+```text
+v_date_purchased	v_orders_status_name	v_orders_id	v_customers_id	v_customers_name	v_customers_company	v_customers_street_address	v_customers_suburb	v_customers_city	v_customers_postcode	v_customers_country	v_customers_telephone	v_customers_email_address	v_products_model	v_products_name	v_products_options	v_products_options_values	ENDOFROW
+```
+
+The no-attributes header replaces the two option columns with `v_total_cost`.
+
+## Admin-menu release checklist
+
+Every encapsulated plugin page must be checked as one complete integration:
+
+1. The installer registers the `admin_pages` row with the intended page key, language key, filename constant, menu key, and visibility.
+2. An admin `extra_datafiles` file defines the filename constant before menu construction.
+3. An admin-language `extra_definitions` file provides every menu-caption key.
+4. A defensive `extra_functions` bootstrap covers supported Zen Cart bootstrap differences and repairs a genuinely absent registration only when the plugin is installed.
+5. The registered route resolves to an existing admin page file.
+6. Upgrade and uninstall paths refresh or remove the same page keys.
+7. Package tests verify all integration files, constants, keys, routes, and version strings before release.
+8. Testing confirms the page appears for both a superuser and a permitted non-superuser profile.
+
 ## Data handling
 
 The export is available only through the authenticated Zen Cart admin page. Version 3.0.3 does not create server-side export files and does not require a writable catalog directory.
