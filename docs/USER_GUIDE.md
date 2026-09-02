@@ -69,9 +69,11 @@ Carriage returns, line breaks, and tabs inside values are replaced with spaces s
 
 ### The menu item is missing
 
-- Confirm that v3.0.2 shows as installed under **Modules > Plugin Manager**.
-- Sign out of Admin and sign in again.
-- Confirm that the admin profile has permission to use Orders Exporter.
+- Confirm that v3.0.3 shows as installed under **Modules > Plugin Manager**.
+- Confirm that `admin/includes/extra_datafiles/orders_exporter.php`, `admin/includes/functions/extra_functions/orders_exporter_menu.php`, and `admin/includes/languages/english/extra_definitions/lang.orders_exporter_menu.php` exist inside v3.0.3.
+- Open any Admin page once so the runtime bootstrap can repair an absent page registration.
+- Confirm that the admin profile can access `ordersExporter` under **Admin Access Management**.
+- If a runtime file is missing, replace the incomplete plugin directory and run the Plugin Manager upgrade. Refreshing the browser cannot replace a missing PHP file.
 
 ### The export stops before finishing
 
