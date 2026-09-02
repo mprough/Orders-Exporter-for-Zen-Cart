@@ -32,19 +32,32 @@ Exports only ordered products that have attributes and omits orders whose status
 
 ## Exported columns
 
-Depending on the selected export, the file can contain:
+The full, full-except-Delivered, and attributes-only exports use these columns in this order:
 
-- Purchase date.
-- Order status name.
-- Order ID and customer ID.
-- Customer name and company.
-- Customer street address, suburb, city, postal code, and country.
-- Customer telephone number and email address.
-- Product model and product name.
-- Product option and option value.
-- Order total in the export without attributes.
+```text
+v_date_purchased
+v_orders_status_name
+v_orders_id
+v_customers_id
+v_customers_name
+v_customers_company
+v_customers_street_address
+v_customers_suburb
+v_customers_city
+v_customers_postcode
+v_customers_country
+v_customers_telephone
+v_customers_email_address
+v_products_model
+v_products_name
+v_products_options
+v_products_options_values
+ENDOFROW
+```
 
-Every row ends with the legacy `ENDOFROW` marker for compatibility with workflows built around earlier releases.
+The without-attributes export omits `v_products_options` and `v_products_options_values`. It adds `v_total_cost` after `v_products_name`, followed by `ENDOFROW`.
+
+`ENDOFROW` is retained for compatibility with workflows built around earlier releases.
 
 ## Large exports
 
