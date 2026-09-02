@@ -2,10 +2,10 @@
 
 ## Package design
 
-Orders Exporter v3.0.1 is an encapsulated Zen Cart Plugin Manager package. Its executable and language files remain inside:
+Orders Exporter v3.0.2 is an encapsulated Zen Cart Plugin Manager package. Its executable and language files remain inside:
 
 ```text
-files/zc_plugins/OrdersExporter/v3.0.1/
+files/zc_plugins/OrdersExporter/v3.0.2/
 ```
 
 The scripted installer registers the Tools menu page, creates the configuration group, and installs the batch-size setting. No Zen Cart core file is replaced.
@@ -14,7 +14,7 @@ The scripted installer registers the Tools menu page, creates the configuration 
 
 Earlier releases executed one unbounded joined query and appended every row to one PHP string before sending or saving the file. On a large store, that design increased database load and PHP memory usage in proportion to the complete export.
 
-Version 3.0.1 uses two controls:
+Version 3.0.2 uses two controls:
 
 1. Keyset pagination retrieves a bounded batch after the last processed ordered-product and attribute IDs.
 2. Streaming writes each completed row directly to the HTTP response.
@@ -33,7 +33,7 @@ The configured batch size is normalized to 100 through 2,000 rows. The query use
 
 ## Data handling
 
-The export is available only through the authenticated Zen Cart admin page. Version 3.0.1 does not create server-side export files and does not require a writable catalog directory.
+The export is available only through the authenticated Zen Cart admin page. Version 3.0.2 does not create server-side export files and does not require a writable catalog directory.
 
 Values are flattened to one line and one tab-delimited cell. Formula-like prefixes are neutralized before output.
 

@@ -1,5 +1,11 @@
 # Version history
 
+## 3.0.2 - 2026-09-02
+
+- Added the runtime admin `extra_definitions` language file required for menu captions.
+- Corrected the missing Tools and Configuration menu entries.
+- Expanded package validation for both required menu integration files.
+
 ## 3.0.1 - 2026-09-02
 
 - Added the required root-level `filenames.php` file for Plugin Manager.

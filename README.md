@@ -2,7 +2,7 @@
 
 Orders Exporter provides a simple way to download order, customer, product, and product-attribute information from Zen Cart as a tab-delimited text file. The exported file can be opened in Excel, LibreOffice Calc, OpenOffice Calc, accounting software, reporting tools, and other applications that accept tab-delimited data.
 
-Version 3.0.1 is a complete modernization of the original Orders Exporter. It is encapsulated for Zen Cart Plugin Manager, makes no core-file edits, and processes large stores in controlled database batches instead of loading the complete export into PHP memory.
+Version 3.0.2 is a complete modernization of the original Orders Exporter. It is encapsulated for Zen Cart Plugin Manager, makes no core-file edits, and processes large stores in controlled database batches instead of loading the complete export into PHP memory.
 
 ## Compatibility
 
@@ -79,7 +79,7 @@ The exact columns depend on the selected export. Available information includes:
 3. Upload the complete `files/zc_plugins/OrdersExporter` directory into the store's `zc_plugins` directory.
 4. Sign in to Zen Cart Admin.
 5. Open **Modules > Plugin Manager**.
-6. Find **Orders Exporter v3.0.1** and select **Install**.
+6. Find **Orders Exporter v3.0.2** and select **Install**.
 7. Open **Tools > Orders Exporter** and confirm that the four export choices are displayed.
 
 The installed directory structure begins with:
@@ -88,18 +88,19 @@ The installed directory structure begins with:
 zc_plugins/
 └── OrdersExporter/
     ├── v3.0.0/
-    └── v3.0.1/
+    ├── v3.0.1/
+    └── v3.0.2/
 ```
 
 Do not rename the `OrdersExporter` or version directories.
 
 ## Upgrading from version 2.0 or an earlier release
 
-Version 3.0.1 replaces the old loose admin files. It is not installed by copying files directly into the renamed admin directory.
+Version 3.0.2 replaces the old loose admin files. It is not installed by copying files directly into the renamed admin directory.
 
 1. Make a complete backup of the store files and database.
 2. Check the old catalog-side `oexport` directory for saved exports that must be retained securely.
-3. Install v3.0.1 through Plugin Manager using the installation instructions above.
+3. Install v3.0.2 through Plugin Manager using the installation instructions above.
 4. Open **Tools > Orders Exporter** and test a small export.
 5. Remove these obsolete files from the store's renamed admin directory:
 
@@ -113,9 +114,9 @@ includes/languages/english/lang.ordersExport.php
 
 6. After securely retaining or deleting any old export files, remove the catalog-side `oexport` directory.
 
-The previous loose-file release did not create configuration database rows. Version 3.0.1 creates its own configuration group and admin menu registrations during installation.
+The previous loose-file release did not create configuration database rows. Version 3.0.2 creates its own configuration group and admin menu registrations during installation.
 
-The original v2.0 installation document is preserved at [`docs/archive/readme-v2.0.txt`](docs/archive/readme-v2.0.txt) for historical reference. Do not use those archived instructions to install v3.0.1.
+The original v2.0 installation document is preserved at [`docs/archive/readme-v2.0.txt`](docs/archive/readme-v2.0.txt) for historical reference. Do not use those archived instructions to install v3.0.2.
 
 ## Configuration
 
@@ -155,7 +156,7 @@ Open the file as tab-delimited text in the application of your choice. Every row
 
 The original exporter executed one unbounded joined query and appended every result to one PHP string. On a large store, the complete result had to fit in database and PHP resources at the same time.
 
-Version 3.0.1 changes both parts of that process:
+Version 3.0.2 changes both parts of that process:
 
 1. The database returns only the configured number of rows in each query.
 2. Each completed row is written directly to the authenticated browser download.
@@ -168,7 +169,7 @@ This greatly reduces peak PHP memory use and prevents one export query from atte
 
 Order exports can contain names, addresses, telephone numbers, email addresses, product details, and order totals. Store exported files only where authorized staff can access them and delete them when they are no longer required.
 
-Version 3.0.1 improves export safety:
+Version 3.0.2 improves export safety:
 
 - The export requires an authenticated Zen Cart admin session and admin-page permission.
 - The plugin no longer saves unencrypted order data beneath the public catalog directory.
@@ -177,7 +178,7 @@ Version 3.0.1 improves export safety:
 - Export types are restricted to the four supported choices.
 - SQL continuation values and batch limits are generated as integers by the plugin.
 
-The former **Save Orders on server** feature was intentionally retired because it placed order data in a catalog-side directory. Version 3.0.1 only provides direct admin downloads.
+The former **Save Orders on server** feature was intentionally retired because it placed order data in a catalog-side directory. Version 3.0.2 only provides direct admin downloads.
 
 ## Database changes
 
@@ -203,7 +204,7 @@ Uninstall removes the Orders Exporter configuration values, configuration group,
 
 ### The Orders Exporter menu item is missing
 
-- Confirm that v3.0.1 is installed under **Modules > Plugin Manager**.
+- Confirm that v3.0.2 is installed under **Modules > Plugin Manager**.
 - Sign out of Admin and sign in again.
 - Confirm that the current admin profile has permission to use Orders Exporter.
 
@@ -261,6 +262,12 @@ This software is provided without warranty. Back up the store and test the plugi
 Orders Exporter is maintained by PRO-Webs.net. The export design was based on Easy Populate and was developed over time by Matej Pekarek, PRO-Webs, DrByte, and earlier contributors.
 
 ## Version history
+
+### 3.0.2 - September 2, 2026
+
+- Added the runtime admin `extra_definitions` language file required to display the Tools and Configuration menu captions.
+- Corrected the missing **Tools > Orders Exporter** entry after installation or upgrade.
+- Expanded the package test to require both the root filename definition and runtime menu-language definition.
 
 ### 3.0.1 - September 2, 2026
 

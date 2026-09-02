@@ -69,7 +69,7 @@ Carriage returns, line breaks, and tabs inside values are replaced with spaces s
 
 ### The menu item is missing
 
-- Confirm that v3.0.1 shows as installed under **Modules > Plugin Manager**.
+- Confirm that v3.0.2 shows as installed under **Modules > Plugin Manager**.
 - Sign out of Admin and sign in again.
 - Confirm that the admin profile has permission to use Orders Exporter.
 
