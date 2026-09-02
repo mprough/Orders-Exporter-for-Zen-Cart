@@ -1,5 +1,12 @@
 # Version history
 
+## 3.0.3 - 2026-09-02
+
+- Added the admin `extra_datafiles` route definition required during admin bootstrap.
+- Added a defensive `extra_functions` bootstrap for route and menu constants.
+- Added safe self-repair for a missing Tools registration when the plugin is installed.
+- Expanded package validation and missing-menu troubleshooting.
+
 ## 3.0.2 - 2026-09-02
 
 - Added the runtime admin `extra_definitions` language file required for menu captions.
