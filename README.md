@@ -49,28 +49,32 @@ Exports only ordered products that have product attributes and excludes orders w
 
 For compatibility with the original plugin, the three **except Delivered** exports continue to treat order status ID 3 as Delivered. Stores that have reassigned status ID 3 should review **Localization > Order Status** before using those exports.
 
-## Exported information
+## Exported column names
 
-The exact columns depend on the selected export. Available information includes:
+The full and full-except-Delivered exports use these tab-delimited columns in this order:
 
-- Purchase date.
-- Order status name.
-- Order ID.
-- Customer ID.
-- Customer name.
-- Customer company.
-- Customer street address.
-- Customer suburb.
-- Customer city.
-- Customer postal code.
-- Customer country.
-- Customer telephone number.
-- Customer email address.
-- Product model.
-- Product name.
-- Product option name.
-- Product option value.
-- Order total in the export without attributes.
+```text
+v_date_purchased
+v_orders_status_name
+v_orders_id
+v_customers_id
+v_customers_name
+v_customers_company
+v_customers_street_address
+v_customers_suburb
+v_customers_city
+v_customers_postcode
+v_customers_country
+v_customers_telephone
+v_customers_email_address
+v_products_model
+v_products_name
+v_products_options
+v_products_options_values
+ENDOFROW
+```
+
+The attributes-only export uses the same columns. The without-attributes export omits `v_products_options` and `v_products_options_values`, adds `v_total_cost` after `v_products_name`, and then ends with `ENDOFROW`.
 
 ## Installation
 
@@ -281,6 +285,8 @@ Orders Exporter is maintained by PRO-Webs.net. The export design was based on Ea
 - Added safe self-repair when the Tools page registration is absent while the plugin is installed.
 - Added package checks for the route constant, menu constants, and self-repair hook.
 - Expanded missing-menu troubleshooting with exact runtime files and admin-profile guidance.
+- Documented the exact export column names and their output order.
+- Added a reusable admin-menu release checklist to the technical documentation.
 
 ### 3.0.2 - September 2, 2026
 
