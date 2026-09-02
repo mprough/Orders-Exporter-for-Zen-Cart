@@ -6,6 +6,8 @@
 - Added a defensive `extra_functions` bootstrap for route and menu constants.
 - Added safe self-repair for a missing Tools registration when the plugin is installed.
 - Expanded package validation and missing-menu troubleshooting.
+- Documented the exact export column names and order.
+- Added a reusable admin-menu release checklist for future encapsulated plugins.
 
 ## 3.0.2 - 2026-09-02
 
