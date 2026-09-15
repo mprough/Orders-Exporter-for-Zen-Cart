@@ -3,7 +3,7 @@
 set -euo pipefail
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-plugin="$root/files/zc_plugins/OrdersExporter/v3.0.3"
+plugin="$root/files/zc_plugins/OrdersExporter/v3.0.4"
 
 required=(
   "$plugin/manifest.php"
@@ -21,10 +21,11 @@ for file in "${required[@]}"; do
   test -f "$file" || { echo "Missing required file: $file" >&2; exit 1; }
 done
 
-grep -q "'pluginVersion' => 'v3.0.3'" "$plugin/manifest.php"
-grep -q "const ORDERS_EXPORTER_VERSION = '3.0.3'" "$plugin/admin/orders_exporter.php"
-grep -q "'TEXT_VERSION' => 'Version 3.0.3'" "$plugin/admin/includes/languages/english/lang.orders_exporter.php"
-grep -q "PLUGIN_ORDERS_EXPORTER_VERSION.*3.0.3" "$plugin/Installer/ScriptedInstaller.php"
+grep -q "'pluginVersion' => 'v3.0.4'" "$plugin/manifest.php"
+grep -q "const ORDERS_EXPORTER_VERSION = '3.0.4'" "$plugin/admin/orders_exporter.php"
+grep -q "'TEXT_VERSION' => 'Version 3.0.4'" "$plugin/admin/includes/languages/english/lang.orders_exporter.php"
+grep -q "PLUGIN_ORDERS_EXPORTER_VERSION.*3.0.4" "$plugin/Installer/ScriptedInstaller.php"
+php -r "define('IS_ADMIN_FLAG', true); require '$plugin/admin/includes/extra_datafiles/orders_exporter.php'; require '$plugin/filenames.php'; exit(FILENAME_ORDERS_EXPORTER === 'orders_exporter' ? 0 : 1);"
 grep -q "define('FILENAME_ORDERS_EXPORTER', 'orders_exporter')" "$plugin/filenames.php"
 grep -q "define('FILENAME_ORDERS_EXPORTER', 'orders_exporter')" "$plugin/admin/includes/extra_datafiles/orders_exporter.php"
 grep -q "define('BOX_TOOLS_ORDERS_EXPORTER', 'Orders Exporter')" "$plugin/admin/includes/functions/extra_functions/orders_exporter_menu.php"

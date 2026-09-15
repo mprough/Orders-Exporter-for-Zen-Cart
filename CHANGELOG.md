@@ -1,5 +1,10 @@
 # Version history
 
+## 3.0.4 - 2026-09-15
+
+- Guarded the root filename constant so the admin bootstrap can load it after the admin fallback without producing a duplicate constant warning.
+- Added a package check that loads the filename definitions twice to prevent this regression.
+
 ## 3.0.3 - 2026-09-02
 
 - Added the admin `extra_datafiles` route definition required during admin bootstrap.
