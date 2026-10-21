@@ -21,3 +21,8 @@ jobs:
           coverage: none
       - name: Lint PHP files
         run: find files -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Check release metadata and filename loading
+        run: bash tests/check-package.sh
+      - name: Build single-version release archive
+        run: python3 tests/build-release.py

@@ -1,5 +1,13 @@
 # Version history
 
+## 3.0.5 - 2026-10-21
+
+- Advanced the patch version for a new Zen Cart repository upload.
+- Retained the duplicate filename constant fix from 3.0.4.
+- Added release validation for plugin ID 560 and the current manifest version.
+- Built the distribution with one current version directory and one manifest.
+- Export behavior and output formats are unchanged.
+
 ## 3.0.4 - 2026-09-15
 
 - Guarded the root filename constant so the admin bootstrap can load it after the admin fallback without producing a duplicate constant warning.

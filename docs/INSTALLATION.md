@@ -15,7 +15,7 @@ Orders Exporter does not edit Zen Cart core files.
 2. Upload the complete `files/zc_plugins/OrdersExporter` directory to the store's `zc_plugins` directory.
 3. Sign in to Zen Cart Admin.
 4. Open **Modules > Plugin Manager**.
-5. Find **Orders Exporter v3.0.4** and select **Install**.
+5. Find **Orders Exporter v3.0.5** and select **Install**.
 6. Open **Tools > Orders Exporter** and confirm that the four downloads are displayed.
 
 The installed structure begins with:
@@ -26,14 +26,14 @@ zc_plugins/
     ├── v3.0.0/
     ├── v3.0.1/
     ├── v3.0.2/
-    └── v3.0.4/
+    └── v3.0.5/
 ```
 
 Do not rename `OrdersExporter` or the version directories.
 
-## Upgrade from v3.0.0 through v3.0.3
+## Upgrade from v3.0.0 through v3.0.4
 
-1. Upload the complete `v3.0.4` directory beside the earlier version directories.
+1. Upload the complete `v3.0.5` directory beside the earlier version directories.
 2. Open **Modules > Plugin Manager** and run the offered Orders Exporter upgrade.
 3. Open any Admin page once, then confirm **Tools > Orders Exporter** appears.
 
@@ -41,10 +41,10 @@ Do not manually insert a duplicate `admin_pages` row. The upgrade refreshes the 
 
 ## Upgrade from version 2.0 or an earlier loose-file installation
 
-Version 3.0.4 is a replacement package, not an overwrite of the old loose admin files.
+Version 3.0.5 is a replacement package, not an overwrite of the old loose admin files.
 
 1. Back up the store files and database.
-2. Install v3.0.4 through Plugin Manager using the new-installation steps above.
+2. Install v3.0.5 through Plugin Manager using the new-installation steps above.
 3. Confirm that **Tools > Orders Exporter** opens and test a small export.
 4. Remove the following obsolete files from the store's renamed admin directory:
 
@@ -58,7 +58,7 @@ includes/languages/english/lang.ordersExport.php
 
 5. Remove the catalog-side `oexport` directory after securely retaining or deleting any old export files it contains.
 
-The old loose-file plugin did not create configuration database rows. Version 3.0.4 creates its own configuration group and admin menu registrations during installation.
+The old loose-file plugin did not create configuration database rows. Version 3.0.5 creates its own configuration group and admin menu registrations during installation.
 
 ## Configuration
 
@@ -66,7 +66,7 @@ Open **Configuration > Orders Exporter**.
 
 ### Installed version
 
-The version field is read-only and displays `3.0.4`.
+The version field is read-only and displays `3.0.5`.
 
 ### Export query batch size
 

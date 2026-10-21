@@ -2,7 +2,7 @@
 
 Orders Exporter provides a simple way to download order, customer, product, and product-attribute information from Zen Cart as a tab-delimited text file. The exported file can be opened in Excel, LibreOffice Calc, OpenOffice Calc, accounting software, reporting tools, and other applications that accept tab-delimited data.
 
-Version 3.0.4 is a complete modernization of the original Orders Exporter. It is encapsulated for Zen Cart Plugin Manager, makes no core-file edits, and processes large stores in controlled database batches instead of loading the complete export into PHP memory.
+Version 3.0.5 is a complete modernization of the original Orders Exporter. It is encapsulated for Zen Cart Plugin Manager, makes no core-file edits, and processes large stores in controlled database batches instead of loading the complete export into PHP memory.
 
 ## Compatibility
 
@@ -83,7 +83,7 @@ The attributes-only export uses the same columns. The without-attributes export 
 3. Upload the complete `files/zc_plugins/OrdersExporter` directory into the store's `zc_plugins` directory.
 4. Sign in to Zen Cart Admin.
 5. Open **Modules > Plugin Manager**.
-6. Find **Orders Exporter v3.0.4** and select **Install**.
+6. Find **Orders Exporter v3.0.5** and select **Install**.
 7. Open **Tools > Orders Exporter** and confirm that the four export choices are displayed.
 
 The installed directory structure begins with:
@@ -94,14 +94,14 @@ zc_plugins/
     ├── v3.0.0/
     ├── v3.0.1/
     ├── v3.0.2/
-    └── v3.0.4/
+    └── v3.0.5/
 ```
 
 Do not rename the `OrdersExporter` or version directories.
 
-### Upgrading from v3.0.0 through v3.0.3
+### Upgrading from v3.0.0 through v3.0.4
 
-1. Upload the complete `v3.0.4` directory beside the earlier version directories.
+1. Upload the complete `v3.0.5` directory beside the earlier version directories.
 2. Open **Modules > Plugin Manager** and run the offered Orders Exporter upgrade.
 3. Open any Admin page once, then use **Tools > Orders Exporter**.
 
@@ -109,11 +109,11 @@ Do not manually add another `admin_pages` row. The upgrade refreshes the existin
 
 ## Upgrading from version 2.0 or an earlier release
 
-Version 3.0.4 replaces the old loose admin files. It is not installed by copying files directly into the renamed admin directory.
+Version 3.0.5 replaces the old loose admin files. It is not installed by copying files directly into the renamed admin directory.
 
 1. Make a complete backup of the store files and database.
 2. Check the old catalog-side `oexport` directory for saved exports that must be retained securely.
-3. Install v3.0.4 through Plugin Manager using the installation instructions above.
+3. Install v3.0.5 through Plugin Manager using the installation instructions above.
 4. Open **Tools > Orders Exporter** and test a small export.
 5. Remove these obsolete files from the store's renamed admin directory:
 
@@ -127,9 +127,9 @@ includes/languages/english/lang.ordersExport.php
 
 6. After securely retaining or deleting any old export files, remove the catalog-side `oexport` directory.
 
-The previous loose-file release did not create configuration database rows. Version 3.0.4 creates its own configuration group and admin menu registrations during installation.
+The previous loose-file release did not create configuration database rows. Version 3.0.5 creates its own configuration group and admin menu registrations during installation.
 
-The original v2.0 installation document is preserved at [`docs/archive/readme-v2.0.txt`](docs/archive/readme-v2.0.txt) for historical reference. Do not use those archived instructions to install v3.0.4.
+The original v2.0 installation document is preserved at [`docs/archive/readme-v2.0.txt`](docs/archive/readme-v2.0.txt) for historical reference. Do not use those archived instructions to install v3.0.5.
 
 ## Configuration
 
@@ -169,7 +169,7 @@ Open the file as tab-delimited text in the application of your choice. Every row
 
 The original exporter executed one unbounded joined query and appended every result to one PHP string. On a large store, the complete result had to fit in database and PHP resources at the same time.
 
-Version 3.0.4 changes both parts of that process:
+Version 3.0.5 changes both parts of that process:
 
 1. The database returns only the configured number of rows in each query.
 2. Each completed row is written directly to the authenticated browser download.
@@ -182,7 +182,7 @@ This greatly reduces peak PHP memory use and prevents one export query from atte
 
 Order exports can contain names, addresses, telephone numbers, email addresses, product details, and order totals. Store exported files only where authorized staff can access them and delete them when they are no longer required.
 
-Version 3.0.4 improves export safety:
+Version 3.0.5 improves export safety:
 
 - The export requires an authenticated Zen Cart admin session and admin-page permission.
 - The plugin no longer saves unencrypted order data beneath the public catalog directory.
@@ -191,7 +191,7 @@ Version 3.0.4 improves export safety:
 - Export types are restricted to the four supported choices.
 - SQL continuation values and batch limits are generated as integers by the plugin.
 
-The former **Save Orders on server** feature was intentionally retired because it placed order data in a catalog-side directory. Version 3.0.4 only provides direct admin downloads.
+The former **Save Orders on server** feature was intentionally retired because it placed order data in a catalog-side directory. Version 3.0.5 only provides direct admin downloads.
 
 ## Database changes
 
@@ -217,8 +217,8 @@ Uninstall removes the Orders Exporter configuration values, configuration group,
 
 ### The Orders Exporter menu item is missing
 
-- Confirm that v3.0.4 is installed under **Modules > Plugin Manager**.
-- Confirm these v3.0.4 files exist: `admin/includes/extra_datafiles/orders_exporter.php`, `admin/includes/functions/extra_functions/orders_exporter_menu.php`, and `admin/includes/languages/english/extra_definitions/lang.orders_exporter_menu.php`.
+- Confirm that v3.0.5 is installed under **Modules > Plugin Manager**.
+- Confirm these v3.0.5 files exist: `admin/includes/extra_datafiles/orders_exporter.php`, `admin/includes/functions/extra_functions/orders_exporter_menu.php`, and `admin/includes/languages/english/extra_definitions/lang.orders_exporter_menu.php`.
 - Open any Admin page once. The runtime bootstrap repairs a missing `ordersExporter` registration when the plugin configuration is present.
 - Confirm that the current admin profile has permission to use `ordersExporter` under **Admin Access Management**.
 - If a runtime file is missing, replace the incomplete plugin directory and run the Plugin Manager upgrade. A browser refresh cannot replace missing PHP definitions.
@@ -277,6 +277,13 @@ This software is provided without warranty. Back up the store and test the plugi
 Orders Exporter is maintained by PRO-Webs.net. The export design was based on Easy Populate and was developed over time by Matej Pekarek, PRO-Webs, DrByte, and earlier contributors.
 
 ## Version history
+
+### 3.0.5 - October 21, 2026
+
+- Advanced the patch version for a new Zen Cart repository upload.
+- Retained the duplicate filename constant fix from 3.0.4.
+- Packaged one current version and one manifest with plugin ID 560.
+- Export behavior and file formats are unchanged.
 
 ### 3.0.4 - September 15, 2026
 
