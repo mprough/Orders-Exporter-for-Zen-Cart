@@ -1,5 +1,7 @@
 # Orders Exporter for Zen Cart
 
+**Download the install ZIP:** [Orders-Exporter-v3.0.5.zip](https://raw.githubusercontent.com/mprough/Orders-Exporter-for-Zen-Cart/main/dist/Orders-Exporter-v3.0.5.zip). Extract it on your computer and follow the installation instructions below.
+
 Orders Exporter provides a simple way to download order, customer, product, and product-attribute information from Zen Cart as a tab-delimited text file. The exported file can be opened in Excel, LibreOffice Calc, OpenOffice Calc, accounting software, reporting tools, and other applications that accept tab-delimited data.
 
 Version 3.0.5 is a complete modernization of the original Orders Exporter. It is encapsulated for Zen Cart Plugin Manager, makes no core-file edits, and processes large stores in controlled database batches instead of loading the complete export into PHP memory.
